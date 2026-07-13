@@ -15,7 +15,7 @@ Set your Steam account username as an environment variable before running
 set STEAM_USER=yourSteamAccount
 ```
 
-Use `setx STEAM_USER=yourSteamAccount` instead if you want it to persist
+Use `setx STEAM_USER yourSteamAccount` instead if you want it to persist
 across cmd sessions.
 
 ## Scripts

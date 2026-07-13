@@ -21,14 +21,14 @@ for %%A in (%*) do (
     if /I "!arg:~0,5!"=="beta:" set "betaFlag=-beta !arg:~5!"
 )
 
-if not exist "%~dp0install_steamcmd.bat" (
-    echo ERROR: install_steamcmd.bat not found next to install_steam_app.bat.
+if not exist "%~dp0steamcmd_install.bat" (
+    echo ERROR: steamcmd_install.bat not found next to steam_app_install.bat.
     exit /b 1
 )
 
-call "%~dp0install_steamcmd.bat"
+call "%~dp0steamcmd_install.bat"
 if errorlevel 1 (
-    echo ERROR: install_steamcmd.bat failed.
+    echo ERROR: steamcmd_install.bat failed.
     exit /b 1
 )
 
@@ -51,6 +51,6 @@ echo Update complete for app %appId% (exit code %errorlevel% - see steamcmd outp
 exit /b 0
 
 :usage
-echo Usage: install_steam_app.bat ^<appId^> ^<installDir^> [beta:branchName] [validate]
+echo Usage: steam_app_install.bat ^<appId^> ^<installDir^> [beta:branchName] [validate]
 echo   Requires the STEAM_USER environment variable to be set.
 exit /b 1

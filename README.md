@@ -9,7 +9,7 @@ intended for reuse by any similar dedicated-server-scripts repo.
 ## Setup
 
 Set your Steam account username as an environment variable before running
-`install_steam_app.bat` (never hardcode it in scripts):
+`steam_app_install.bat` (never hardcode it in scripts):
 
 ```
 set STEAM_USER=yourSteamAccount
@@ -20,14 +20,14 @@ across cmd sessions.
 
 ## Scripts
 
-### `install_steamcmd.bat`
+### `steamcmd_install.bat`
 Downloads and bootstraps SteamCMD into `C:\steamcmd` if it isn't already
 installed. Safe to call every time - it's a no-op if `steamcmd.exe` already
 exists there.
 
-### `install_steam_app.bat <appId> <installDir> [beta:branchName] [validate]`
+### `steam_app_install.bat <appId> <installDir> [beta:branchName] [validate]`
 Installs/updates a single Steam app via SteamCMD. Installs SteamCMD first if
-needed (by calling `install_steamcmd.bat` in this same folder).
+needed (by calling `steamcmd_install.bat` in this same folder).
 
 - `<appId>` - the Steam app ID to install (e.g. `380870` for Project Zomboid
   dedicated server, `223350` for DayZ dedicated server).
@@ -38,9 +38,9 @@ needed (by calling `install_steamcmd.bat` in this same folder).
 
 Examples:
 ```
-install_steam_app.bat 380870 C:\pzserver
-install_steam_app.bat 380870 C:\pzserverb42 beta:unstable validate
-install_steam_app.bat 223350 C:\DayZServer
+steam_app_install.bat 380870 C:\pzserver
+steam_app_install.bat 380870 C:\pzserverb42 beta:unstable validate
+steam_app_install.bat 223350 C:\DayZServer
 ```
 
 This script is generic on purpose - it doesn't know about any particular

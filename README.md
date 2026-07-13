@@ -50,9 +50,8 @@ repo's own wrapper script.
 
 ### `steam_workshop_mods_install.bat <appId> <installDir> <modId> <folderName>`
 Downloads a single Steam Workshop item via SteamCMD and installs it into
-`<installDir>\<folderName>`, copying any `keys` subfolder into
-`<installDir>\keys`. Installs SteamCMD first if needed. Handles one mod per
-call - call it once per mod.
+`<installDir>\<folderName>`. Installs SteamCMD first if needed. Handles one
+mod per call - call it once per mod.
 
 - `<appId>` - the Steam app ID the workshop item belongs to (e.g. `221100`
   for DayZ).
@@ -70,9 +69,10 @@ steam_workshop_mods_install.bat 221100 C:\DayZServer 1828439124 @VPPAdminTools
 ```
 
 This script only handles the generic "download + drop into a folder" part.
-Anything else mod-related that's specific to one server (custom mission
-files bundled inside a mod's workshop folder, extra config copies, etc.)
-belongs in the calling repo's own wrapper script.
+Anything else mod-related that's engine- or server-specific (copying key
+files out of the mod folder, custom mission files bundled inside a mod's
+workshop folder, extra config copies, etc.) belongs in the calling repo's
+own wrapper script.
 
 ## Notes
 

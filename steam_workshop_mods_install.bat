@@ -37,11 +37,9 @@ rem successful download (the same quirk as steam_app_install.bat), so we
 rem don't gate on errorlevel here.
 
 set "workshopContent=%installDir%\steamapps\workshop\content\%appId%\%modId%"
-if not exist "%installDir%\keys" mkdir "%installDir%\keys"
 
 echo Installing %folderName% (%modId%)...
 robocopy "%workshopContent%" "%installDir%\%folderName%" /E /R:3 /W:5
-robocopy "%workshopContent%\keys" "%installDir%\keys" /E /R:3 /W:5
 
 rem robocopy exit codes 0-7 all indicate some degree of success; only 8+
 rem is a real failure, so we don't gate on errorlevel here either.

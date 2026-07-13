@@ -45,8 +45,34 @@ steam_app_install.bat 223350 C:\DayZServer
 
 This script is generic on purpose - it doesn't know about any particular
 game. Game-specific concerns (checking whether the server is currently
-running before updating, default install paths, mod downloads, etc.) belong
-in the calling repo's own wrapper script.
+running before updating, default install paths, etc.) belong in the calling
+repo's own wrapper script.
+
+### `steam_workshop_mods_install.bat <appId> <installDir> <modId> <folderName>`
+Downloads a single Steam Workshop item via SteamCMD and installs it into
+`<installDir>\<folderName>`, copying any `keys` subfolder into
+`<installDir>\keys`. Installs SteamCMD first if needed. Handles one mod per
+call - call it once per mod.
+
+- `<appId>` - the Steam app ID the workshop item belongs to (e.g. `221100`
+  for DayZ).
+- `<installDir>` - the server install directory (the workshop download lands
+  under `<installDir>\steamapps\workshop\content\<appId>\<modId>` first, then
+  gets copied into `<installDir>\<folderName>`).
+- `<modId>` - the Steam Workshop item ID.
+- `<folderName>` - whatever local mod folder name the server expects
+  (usually `@ModName`).
+
+Example:
+```
+steam_workshop_mods_install.bat 221100 C:\DayZServer 1559212036 @CF
+steam_workshop_mods_install.bat 221100 C:\DayZServer 1828439124 @VPPAdminTools
+```
+
+This script only handles the generic "download + drop into a folder" part.
+Anything else mod-related that's specific to one server (custom mission
+files bundled inside a mod's workshop folder, extra config copies, etc.)
+belongs in the calling repo's own wrapper script.
 
 ## Notes
 
